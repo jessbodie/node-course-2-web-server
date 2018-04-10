@@ -4,6 +4,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// Necessary for running on Heroku
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 // Way to show partials with HBS, arg is directory
@@ -73,7 +76,7 @@ app.get('/bad', (req, res) => {
 // Listen sers up server
 // First argument is port. 3000 is common port for developing
 // Listen takes 2nd argument to handle error handling
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 } );
 
